@@ -26,9 +26,16 @@ def by_domain():
             df.drop(df[df["Domain"]  == x].index,inplace=True)
 #===================================
 # Removed from list by two statements
-# df.drop(df[df["Client"]  == "Client5"].index & df[df["Name"]  == "DOKER"].index ,inplace=True)
-# print(df["Name"]  == df['Name'].str.extract('(\$\.d*\.?\d*)')
-# df.drop(df[df["Client"]  == "Client5"].index & df[df["Name"]  == str.startswith("v")].index ,inplace=True)
+name_list = df["Name"].values.tolist()
+for i in name_list:
+        if i.startswith("V"):
+                df.drop(df[df["Client"]  == "Client5"].index & df[df["Name"]  == i].index ,inplace=True)
+
+        else:
+                pass
+
+
+df.drop(df[df["Client"]  == "Client5"].index & df[df["Name"]  == "DOKER"].index ,inplace=True)
 
     # if i.lower().startswith("v"):
         # df.drop(df[df["Client"]  == "Client5"].index & df[df["Name"]  == i],inplace=True)
@@ -36,4 +43,4 @@ def by_domain():
 
 
 
-# print(df)
+print(df)
